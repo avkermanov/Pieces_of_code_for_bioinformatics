@@ -8,4 +8,6 @@ sed -n '/>gi|1$/,/>gi|2$/p' gi_n.txt | sed -e '$ d' > gi_1.fasta
 #if the header is too long, should be replaced before; in general the headers shoud be uniformed to be searched
 # through loops or be replaceble with variables
 
+#delete all after specific match including the line with this match (scaffold in this situation)
 sed -n '/scaffold/q;p' input_file > output_file
+
