@@ -11,3 +11,5 @@ sed -n '/>gi|1$/,/>gi|2$/p' gi_n.txt | sed -e '$ d' > gi_1.fasta
 #delete all after specific match including the line with this match (scaffold in this situation)
 sed -n '/scaffold/q;p' input_file > output_file
 
+#include all the lines starting with the match specified
+sed -n -e '/scaffold/,$p'
