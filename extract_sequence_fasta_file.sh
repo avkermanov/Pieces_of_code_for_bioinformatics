@@ -13,3 +13,6 @@ sed -n '/scaffold/q;p' input_file > output_file
 
 #include all the lines starting with the match specified
 sed -n -e '/scaffold/,$p'
+
+#for a given multifasta file splitting into individual fasta files, and naming the files as the fasta sequence title. fasta sequence title should not contain spaces
+while read line; do echo $line > tmp.txt; if grep -q ">" tmp.txt;  then finename=$(cat tmp.txt | sed 's/>//'); echo $line > $finename.txt ; else echo $line  >> $finename.txt; fi; rm tmp.txt; done <sequence2.txt 
